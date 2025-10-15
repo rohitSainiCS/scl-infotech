@@ -6,7 +6,7 @@ const CareersSection: React.FC = () => {
   const [showDetails, setShowDetails] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // Scroll to section smoothly when details are shown to avoid jump
+  // Smooth scroll into view when details open
   useEffect(() => {
     if (showDetails && sectionRef.current) {
       sectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -41,11 +41,7 @@ const CareersSection: React.FC = () => {
   ];
 
   return (
-    <section
-      id="careers"
-      className="py-20 bg-gray-900/90"
-      ref={sectionRef}
-    >
+    <section id="careers" className="py-20 bg-gray-900/90" ref={sectionRef}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Section Header */}
         <motion.div
@@ -71,22 +67,22 @@ const CareersSection: React.FC = () => {
           >
             <button
               onClick={() => setShowDetails(true)}
-              className="inline-block px-8 py-3 bg-teal-500 text-white font-semibold rounded-full hover:bg-teal-600 transition-all duration-300"
               type="button"
+              className="inline-block px-8 py-3 bg-teal-500 text-white font-semibold rounded-full hover:bg-teal-600 transition-all duration-300"
             >
               Work with us
             </button>
             <a
               href="mailto:careers@sclinfotech.in?subject=Job Application"
               className="inline-block px-8 py-3 bg-gray-700 text-white font-semibold rounded-full hover:bg-gray-600 transition-all duration-300"
-              onClick={e => e.stopPropagation()} // Prevent propagation if needed
+              onClick={(e) => e.stopPropagation()}
             >
               Apply for job
             </a>
           </motion.div>
         )}
 
-        {/* Expanded Section */}
+        {/* Expanded Details */}
         {showDetails && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -118,14 +114,12 @@ const CareersSection: React.FC = () => {
                   <h3 className="text-lg sm:text-xl font-semibold text-white mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-300 leading-relaxed">
-                    {feature.description}
-                  </p>
+                  <p className="text-gray-300 leading-relaxed">{feature.description}</p>
                 </motion.div>
               ))}
             </div>
 
-            {/* Commitment / CTA */}
+            {/* CTA Section */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -136,15 +130,14 @@ const CareersSection: React.FC = () => {
                 Let’s Build the Future Together
               </h4>
               <p className="text-gray-300 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed mb-6">
-                At SCL Infotech, you’ll work on cutting-edge technologies in
-                finance automation, AI-driven decision systems, and more. Your
-                contribution will make a real impact in redefining financial
-                services.
+                At SCL Infotech, you’ll work on cutting-edge technologies in finance automation,
+                AI-driven decision systems, and more. Your contribution will make a real impact in
+                redefining financial services.
               </p>
               <a
                 href="mailto:careers@sclinfotech.in?subject=Application for Career at SCL Infotech"
                 className="inline-block px-8 py-3 bg-teal-500 text-white font-semibold rounded-full hover:bg-teal-600 transition-all duration-300"
-                onClick={e => e.stopPropagation()} 
+                onClick={(e) => e.stopPropagation()}
               >
                 Send Your Resume
               </a>
