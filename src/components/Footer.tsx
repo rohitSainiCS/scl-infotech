@@ -15,8 +15,6 @@ const Footer: React.FC = () => {
       { name: 'Post-production Support', href: '#services' },
       { name: 'Lending Solutions', href: '#lending-solutions' },
       { name: 'Decision Automation', href: '#decision-automation' },
-
-      
     ],
     company: [
       { name: 'About Us', href: '#about' },
@@ -24,7 +22,6 @@ const Footer: React.FC = () => {
       { name: 'Our Clients', href: '#clients' },
       { name: 'Testimonials', href: '#feedback' },
       { name: 'FAQ', href: '#faq' },
-      
     ],
     legal: [
       { name: 'Privacy Policy', href: '#' },
@@ -53,31 +50,37 @@ const Footer: React.FC = () => {
             className="lg:col-span-1"
           >
             <h3 className="text-2xl font-extrabold text-teal-400 mb-5">
-              SCLinfotech Pvt Ltd 
+              SCLinfotech Pvt Ltd
             </h3>
 
             <p className="text-gray-300 mb-6 leading-relaxed">
-              SCLinfotech Pvt Ltd delivers cutting-edge technology solutions 
-              and comprehensive services to finance companies, helping them 
+              SCLinfotech Pvt Ltd delivers cutting-edge technology solutions{' '}
+              and comprehensive services to finance companies, helping them{' '}
               streamline operations and achieve sustainable growth.
             </p>
 
             <div className="space-y-4 text-gray-300">
               <div className="flex items-center gap-3">
                 <Mail size={18} className="text-teal-400" />
-                <a href="mailto:lp@sclinfotech.in" className="hover:text-teal-400 transition">
+                <a
+                  href="mailto:lp@sclinfotech.in"
+                  className="hover:text-teal-400 transition"
+                >
                   lp@sclinfotech.in
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={18} className="text-teal-400" />
-                <a href="tel:+919289442740" className="hover:text-teal-400 transition">
+                <a
+                  href="tel:+919289442740"
+                  className="hover:text-teal-400 transition"
+                >
                   +91-9289442740
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin size={18} className="text-teal-400" />
-                <span>Qbicals 109 First Floor, Sector 62, Noida Uttar Pradesh, India</span>
+                <span>Qbicals 109 First Floor, Sector 63, Noida Uttar Pradesh, India</span>
               </div>
             </div>
           </motion.div>
@@ -156,7 +159,7 @@ const Footer: React.FC = () => {
                   aria-label={social.label}
                   className="w-11 h-11 bg-gray-800 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-teal-600 transition-all duration-300 shadow-lg"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                 >
                   <social.icon size={20} />
                 </a>
@@ -179,8 +182,6 @@ const Footer: React.FC = () => {
           <p className="text-gray-400 text-sm">
             Built with ❤️ by{' '}
             <a
-              // rel="nofollow noopener noreferrer"
-              // target="_blank"
               href="#home"
               className="text-teal-400 hover:text-teal-300 transition-colors duration-200"
             >
