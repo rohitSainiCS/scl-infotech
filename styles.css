@@ -4,3 +4,11 @@
 html {
   scroll-behavior: smooth;
 }
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.offending-element {
+  width: 100%;
+  box-sizing: border-box;
+}
