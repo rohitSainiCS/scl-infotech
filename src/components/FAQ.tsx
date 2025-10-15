@@ -8,36 +8,24 @@ const FAQ: React.FC = () => {
   const faqs = [
     {
       question: 'What types of finance companies do you serve?',
-      answer: 'We serve banks, credit unions, lending institutions, investment firms, insurance companies, and fintech startups. Our scalable solutions adapt to your specific needs.'
+      answer:
+        'We serve banks, credit unions, lending institutions, investment firms, insurance companies, and fintech startups. Our scalable solutions adapt to your specific needs.',
     },
     {
       question: 'How long does implementation take?',
-      answer: 'Timelines vary: simple integrations take 2-4 weeks, full overhauls 3-6 months. Detailed timelines provided at consultation.'
+      answer:
+        'Timelines vary: simple integrations take 2-4 weeks, full overhauls 3-6 months. Detailed timelines provided at consultation.',
     },
     {
       question: 'Do you provide ongoing support?',
-      answer: 'Yes, we offer 24/7 support including updates, monitoring, troubleshooting, and technical assistance.'
+      answer:
+        'Yes, we offer 24/7 support including updates, monitoring, troubleshooting, and technical assistance.',
     },
-    // {
-    //   question: 'Are your solutions regulation-compliant?',
-    //   answer: 'Absolutely. We comply with PCI DSS, SOX, GDPR, and other relevant financial standards, including auditing and reporting.'
-    // },
-    // {
-    //   question: 'Can you integrate with existing systems?',
-    //   answer: 'Yes, we specialize in seamless integration across platforms, databases, and third-party apps to ensure data consistency.'
-    // },
-    // {
-    //   question: 'What sets SCLinfotech apart?',
-    //   answer: 'Expertise in finance, innovation, and a personalized approach. We’re your strategic technology partner for growth.'
-    // },
-    // {
-    //   question: 'Do you offer custom software development?',
-    //   answer: 'Yes, tailored specifically for finance firms—from new apps to full digital transformations.'
-    // },
     {
       question: 'How do you ensure data security?',
-      answer: 'Through multi-layered security: encryption, access controls, audits, and compliance with industry standards.'
-    }
+      answer:
+        'Through multi-layered security: encryption, access controls, audits, and compliance with industry standards.',
+    },
   ];
 
   const toggleFAQ = (index: number) => {
@@ -78,6 +66,8 @@ const FAQ: React.FC = () => {
                   onClick={() => toggleFAQ(index)}
                   className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-800/50 transition-colors duration-300"
                   aria-expanded={openIndex === index}
+                  aria-controls={`faq-answer-${index}`}
+                  id={`faq-question-${index}`}
                 >
                   <h3 className="text-base sm:text-lg font-semibold text-white pr-4 leading-tight">
                     {faq.question}
@@ -86,10 +76,13 @@ const FAQ: React.FC = () => {
                     {openIndex === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                   </div>
                 </button>
-                
-                <AnimatePresence>
+
+                <AnimatePresence initial={false}>
                   {openIndex === index && (
                     <motion.div
+                      id={`faq-answer-${index}`}
+                      role="region"
+                      aria-labelledby={`faq-question-${index}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
