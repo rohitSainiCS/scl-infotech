@@ -121,10 +121,10 @@ const Hero: React.FC = () => {
 
       {/* Scroll Down Arrow */}
       <motion.div
-        animate={{ y: [0, 15, 0], opacity: [1, 0.7, 1] }}
-        transition={{ duration: 2, repeat: Infinity, ease: easeInOut }}
-        className="absolute bottom-12 left-1/18 transform -translate-x-1/9 z-10"
-      >
+  animate={{ y: [0, 15, 0], opacity: [1, 0.7, 1] }}
+  transition={{ duration: 2, repeat: Infinity, ease: easeInOut }}
+  className="absolute bottom-20 left-1/18 transform -translate-x-12/9 z-10"
+>
         <button
           onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
           aria-label="Scroll Down"
