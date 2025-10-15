@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
+// ✅ Client Logos
 import HdfcERGO from "../components/images/HdfcERGO.jpg";
 import KloudRack from "./images/kloudRack.jpg";
 import Kollect from "./images/kollect.jpg";
@@ -21,7 +22,7 @@ const ClientsSlider: React.FC = () => {
   const [scrollWidth, setScrollWidth] = useState(0);
   const [duration, setDuration] = useState(25);
 
-  // Adjust speed for mobile
+  // Responsive scroll speed
   useEffect(() => {
     const updateDuration = () => {
       if (window.innerWidth < 640) setDuration(12);
@@ -34,7 +35,7 @@ const ClientsSlider: React.FC = () => {
     return () => window.removeEventListener("resize", updateDuration);
   }, []);
 
-  // Measure width of scrolling content
+  // Measure width of scrollable content
   useEffect(() => {
     if (containerRef.current) {
       setScrollWidth(containerRef.current.scrollWidth / 2);
@@ -42,9 +43,10 @@ const ClientsSlider: React.FC = () => {
   }, [window.innerWidth]);
 
   return (
-    <section id="clients" className="py-24 bg-gray-800">
+    <section id="clients" className="py-24 bg-gradient-to-br from-gray-950 via-gray-900 to-black">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +64,7 @@ const ClientsSlider: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Continuous Logo Slider */}
+        {/* Scrolling Client Logos */}
         <div className="relative overflow-hidden">
           <motion.div
             ref={containerRef}
@@ -77,7 +79,9 @@ const ClientsSlider: React.FC = () => {
             {duplicatedClients.map((client, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-28 h-20 sm:w-44 sm:h-28 bg-gray-700/30 backdrop-blur-sm p-4 rounded-2xl flex items-center justify-center shadow-lg hover:shadow-2xl transition-shadow duration-300 border border-gray-600 hover:border-teal-500"
+                className="flex-shrink-0 w-28 h-20 sm:w-44 sm:h-28 bg-white/5 backdrop-blur-sm p-4 rounded-2xl 
+                  flex items-center justify-center shadow-md border border-gray-700 
+                  hover:shadow-teal-500/10 hover:border-teal-500 transition-all duration-300"
               >
                 <img
                   src={client.logo}
