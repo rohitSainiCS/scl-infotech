@@ -24,12 +24,19 @@ const Header: React.FC = () => {
     href: string
   ) => {
     e.preventDefault();
+
     const target = document.querySelector(href);
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+      const headerOffset = 80; // Adjust this to match header height
+      const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
     }
 
-    // Delay closing the menu to avoid interrupting scroll
     setTimeout(() => {
       setIsMenuOpen(false);
       setIsServicesMobileOpen(false);
@@ -37,7 +44,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-md border-b border-gray-800 shadow-lg">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-md border-b border-gray-800 shadow-lg h-20">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -156,9 +163,7 @@ const Header: React.FC = () => {
                     return (
                       <div key={item.href} className="space-y-1">
                         <button
-                          onClick={() =>
-                            setIsServicesMobileOpen(!isServicesMobileOpen)
-                          }
+                          onClick={() => setIsServicesMobileOpen(!isServicesMobileOpen)}
                           aria-label="Toggle Services submenu"
                           className="w-full text-left text-gray-300 hover:text-teal-400 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 flex justify-between items-center"
                         >
